@@ -1,0 +1,17 @@
+<div class="card">
+
+  <h2>{{ (editMode ? 'EDIT_TODO' : 'ADD_TODO') | translate}}</h2>
+
+
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input placeholder="Title" type="text" id="title" name="title" formControlName="title">
+      <div *ngIf="todoForm.get('title')?.invalid && (todoForm.get('title')?.dirty || todoForm.get('title')?.touched)" class="error">
+        <div *ngIf="todoForm.get('title')?.errors?.['required']">{{ 'TITILE_REQUIRED' | translate }}</div>
+      </div>
+    </div>
+    <button [disabled]="todoForm.invalid" class="card__button" type="submit">
+      <span> {{ (editMode ? 'EDIT_TODO' : 'ADD_TODO') | translate}} </span>
+    </button>
+  </form>
+</div>

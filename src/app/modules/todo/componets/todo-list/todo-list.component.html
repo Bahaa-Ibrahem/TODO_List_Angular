@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card__time">
+    <div class="card__time__date">
+      <p>{{ today | date : "dd" }}</p>
+      <p class="card__time__date__month"><small> {{ today | date : "MMMM" }} </small>{{ today | date : "YYYY" }}</p>
+    </div>
+    <div class="card__time__day">
+      <h3>{{ today | date : "EEEE" }}</h3>
+    </div>
+  </div>
+
+  <form class="card__search" *ngIf="todoList.length">
+    <input
+      name="seachKey"
+      placeholder="Seach..."
+      [(ngModel)]="searchKey"
+      (keyup)="onSearch()"
+    />
+  </form>
+
+  <ul class="card__list">
+    <li class="card__list__item" *ngFor="let item of filteredList; index as i" [class.completed]="item.completed">
+      <input (change)="updateTodo(item, $event)" id="{{item.id}}" type="checkbox" [checked]="item.completed" />
+      <span class="card__list__item__icons">
+        <img [routerLink]="['/update-todo/' + item.id]" src="assets/images/edit.png" alt="Edit">
+        <img (click)="deleteTodo(item.id, i)" src="assets/images/delete.png" alt="Delete">
+      </span>
+      <label title="{{item.title}}" for="{{item.id}}">
+        {{item.title | cuteText: 18}}
+      </label>
+
+    </li>
+  </ul>
+
+  <a [routerLink]="['/add-todo']" class="card__button">
+    <img src="assets/images/plus.svg" alt="Plus">
+  </a>
+</div>

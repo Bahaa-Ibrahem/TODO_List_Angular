@@ -1,0 +1,13 @@
+$primary-color: #03B0AC;
+$secondary-color: #004E75;
+$black-color: #000000;
+$white-color: #FFFFFF;
+$kew-deg: var(--skew-deg);
+
+body {
+    --skew-deg: -20deg;
+}
+
+body[dir="rtl"] {
+    --skew-deg: 20deg;
+}

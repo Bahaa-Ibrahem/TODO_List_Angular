@@ -1,0 +1,46 @@
+.card {
+  margin: auto;
+  width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 3rem;
+
+  input {
+    outline: transparent;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 4px;
+    width: -webkit-fill-available;
+    margin-bottom: 1rem;
+  }
+
+  input[type=checkbox] {
+    width: 1.5em;
+    border-radius: 50%;
+  }
+
+  .error {
+    color: #de3500;
+    margin-bottom: 8px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 3rem;
+    background-color: #4fe4a4;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #ccc;
+
+    span {
+      opacity: 0.6;
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 7rem;
+    width: 320px;
+  }
+}

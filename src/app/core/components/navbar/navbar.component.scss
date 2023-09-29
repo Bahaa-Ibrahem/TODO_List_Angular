@@ -1,0 +1,145 @@
+@import "base/variables";
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__primary {
+      background-color: $primary-color;
+      width: 50%;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      &__logo {
+          position: absolute;
+          left: 50px;
+          top: 45px;
+          width: 100px;
+          z-index: 2;
+
+          img {
+              background-color: $white-color;
+              padding: 5px;
+          }
+      }
+
+      &::after {
+          content: " ";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: $primary-color;
+          transform-origin: bottom left;
+          transform: skewX($kew-deg);
+      }
+  }
+
+  &__secondary {
+      background-color: $secondary-color;
+      width: 53%;
+      height: 80px;
+      position: absolute;
+      left: 0;
+      top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      h2, h4 {
+          color: $white-color;
+          padding-right: 2em;
+          text-align: right;
+      }
+
+      &::after {
+          content: " ";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: $secondary-color;
+          transform-origin: bottom left;
+          transform: skewX($kew-deg);
+      }
+  }
+
+  &__white {
+      background-color: $white-color;
+      width: 41%;
+      height: 80px;
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      &__title {
+          h2 {
+              color: $primary-color;
+              padding-right: 5rem;
+          }
+      }
+
+      &__logo {
+          position: absolute;
+          right: 12px;
+          top: 12px;
+      }
+
+      &::after {
+          content: " ";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: $white-color;
+          transform-origin: top left;
+          transform: skewX($kew-deg);
+      }
+  }
+
+  @media (max-width: 767px) {
+      &__primary {
+          width: 100%;
+
+          &::after {
+              width: 0;
+              height: 0;
+          }
+
+          &__logo {
+              left: 15px;
+              width: 80px;
+          }
+      }
+
+      &__secondary {
+          width: 100%;
+
+          &::after {
+              width: 0;
+              height: 0;
+          }
+
+          h2, h4 {
+            padding-right: 1em;
+        }
+      }
+
+      &__white {
+          width: 100%;
+          right: 0;
+          top: 100px;
+
+          &::after {
+              width: 0;
+              height: 0;
+          }
+      }
+  }
+}

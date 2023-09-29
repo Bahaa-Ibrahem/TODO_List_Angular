@@ -1,0 +1,89 @@
+body[dir= "rtl"] {
+    .navbar {
+        &__primary {
+            &__logo {
+                left: unset;
+                right: 50px !important;
+            }
+        }
+
+        &__secondary {
+            left: unset;
+            right: 0 !important;
+
+            h2, h4 {
+                padding-right: unset;
+                padding-left: 1em !important;
+                text-align: left;
+            }
+        }
+
+        &__white {
+            right: unset;
+            left: 20px !important;
+
+            &__title {
+                h2 {
+                    padding-right: unset;
+                    padding-left: 5rem !important;
+                }
+            }
+
+            &__logo {
+                right: unset;
+                left: 12px !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            &__primary {
+                &__logo {
+                    left: unset;
+                    right: 15px !important;
+                }
+            }
+
+            &__white {
+                right: unset;
+                left: 0 !important;
+            }
+        }
+    }
+
+    .lang {
+        right: unset;
+        left: 2.5% !important;
+
+        @media (max-width: 767px) {
+            right: unset;
+            left: 4% !important;
+        }
+    }
+
+    .card {
+        &__time {
+            &__date {
+                &__month {
+                    padding-left: unset;
+                    padding-right: 0.25rem;
+                }
+            }
+        }
+
+        &__list {
+            padding-left: 5px;
+            padding-right: 0;
+
+            &__item {
+              &__icons {
+                margin-left: unset;
+                margin-right: auto;
+                img {
+                  margin-right: unset !important;
+                  margin-left: 10px !important;
+                }
+              }
+            }
+        }
+    }
+}
