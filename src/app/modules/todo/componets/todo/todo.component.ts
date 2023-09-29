@@ -5,11 +5,11 @@ import { TodoService } from '../../services/todo.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-todo',
-  templateUrl: './add-todo.component.html',
-  styleUrls: ['./add-todo.component.scss']
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.scss']
 })
-export class AddTodoComponent {
+export class TodoComponent {
   todoForm: FormGroup;
   @Input() id: number;
   editMode: boolean = false;
