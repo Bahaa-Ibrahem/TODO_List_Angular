@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { IEditTodo, ITodo } from '../../interfaces/todo.interface';
+import { ITodo } from '../../interfaces/todo.interface';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -27,9 +27,12 @@ export class TodoListComponent {
     })
   }
 
-  updateTodo(item: IEditTodo, event: any) {
-    this.todoService.updateTodo(item).subscribe(() => {
-      item.completed = event.currentTarget.checked;
+  updateTodo(item: ITodo, event: any) {
+    item.completed = event.currentTarget.checked;
+    this.todoService.updateTodo(item).subscribe((res) => {
+      console.log(res)
+    }, (error: any) =>{
+      item.completed = !item.completed;
     })
   }
 

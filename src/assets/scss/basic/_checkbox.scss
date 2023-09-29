@@ -19,10 +19,11 @@ input[type="checkbox"]:checked {
   border: 3px solid #4fe4a4;
 }
 
-.completed label {
-  color: #ccc;
+.completed {
+  label {
+    color: #ccc;
+  }
 }
-
 
 input[type="checkbox"]::before {
   content: "";

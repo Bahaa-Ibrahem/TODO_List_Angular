@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IAddTodo, ITodo } from '../../interfaces/todo.interface';
+import { ITodo } from '../../interfaces/todo.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from '../../services/todo.service';
 import { Router } from '@angular/router';

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
-import { IAddTodo, IEditTodo, ITodo } from '../interfaces/todo.interface';
+import { ITodo } from '../interfaces/todo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +19,11 @@ export class TodoService {
     return this.httpClient.get<ITodo>(`${environment.url}/${id}`)
   }
 
-  createtodo(body: IAddTodo) {
+  createtodo(body: ITodo) {
     return this.httpClient.post(environment.url, { ...body })
   }
 
-  updateTodo(body: IEditTodo) {
+  updateTodo(body: ITodo) {
     return this.httpClient.put(`${environment.url}/${body.id}`, { ...body })
   }
 
