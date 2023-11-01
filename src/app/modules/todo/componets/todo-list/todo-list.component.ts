@@ -23,6 +23,7 @@ export class TodoListComponent {
   getAllTodos() {
     this.todoService.getAllTodos().subscribe((res: ITodo[]) => {
       this.todoList = res;
+      this.todoService.todoList = this.todoList;
       this.filteredList = this.todoList;
     })
   }

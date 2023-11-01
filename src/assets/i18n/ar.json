@@ -1,5 +1,7 @@
 {
   "ADD_TODO": "أضافة مهمة",
   "EDIT_TODO": "تعديل مهمه",
-  "TITILE_REQUIRED": "الاسم مطلوب"
+  "TITILE_REQUIRED": "الاسم مطلوب",
+  "TITILE_MINLENGHT": "عدد الحروف يجب ان لايقل عن 3 حروف",
+  "TITILE_EMPTY": "الاسم يجب ان لا يحتوي علي مسافات"
 }

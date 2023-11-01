@@ -8,6 +8,10 @@
       <input placeholder="Title" type="text" id="title" name="title" formControlName="title">
       <div *ngIf="todoForm.get('title')?.invalid && (todoForm.get('title')?.dirty || todoForm.get('title')?.touched)" class="error">
         <div *ngIf="todoForm.get('title')?.errors?.['required']">{{ 'TITILE_REQUIRED' | translate }}</div>
+        <div *ngIf="todoForm.get('title')?.errors?.['minlength']">{{ 'TITILE_MINLENGHT' | translate }}</div>
+        <div *ngIf="todoForm.get('title')?.errors?.['emptyValue']">{{ 'TITILE_EMPTY' | translate }}</div>
+
+
       </div>
     </div>
     <button [disabled]="todoForm.invalid" class="card__button" type="submit">

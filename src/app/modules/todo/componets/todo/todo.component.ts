@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ITodo } from '../../interfaces/todo.interface';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { TodoService } from '../../services/todo.service';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TodoComponent {
   todoForm: FormGroup;
+  todoList: ITodo[] = [];
   @Input() id: number;
   editMode: boolean = false;
 
@@ -24,10 +25,21 @@ export class TodoComponent {
       this.getTodoById();
     }
 
+    this.todoList = this.todoService.todoList;
+
     this.todoForm = this.formBuilder.group({
-      title: ['', Validators.required],
+      title: ['', [Validators.required, Validators.minLength(3), this.customEmptyValidator]],
       completed: [false]
     });
+  }
+
+   // Custom validator function
+   customEmptyValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value === null || value === '' || value.trim() === '') {
+      return { emptyValue: true };
+    }
+    return null;
   }
 
   getTodoById() {
@@ -43,12 +55,20 @@ export class TodoComponent {
       body.id = this.id;
 
       this.todoService.updateTodo(body).subscribe((res) => {
-        this.router.navigateByUrl('/')
+        this.router.navigateByUrl('/');
       })
      } else {
-      this.todoService.createtodo(this.todoForm.value).subscribe((res) => {
-        this.router.navigateByUrl('/')
-      })
+
+      let currentTodoTitle = this.todoForm.get('title')?.value.trim();
+      let isUniqueTodo = this.todoList.find((todo: ITodo) => todo.title == currentTodoTitle);
+
+      if(!isUniqueTodo) {
+        this.todoService.createtodo(this.todoForm.value).subscribe((res) => {
+          this.router.navigateByUrl('/');
+        })
+      } else {
+        alert("This to do added before!");
+      }
      }
     }
   }

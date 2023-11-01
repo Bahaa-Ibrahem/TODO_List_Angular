@@ -1,5 +1,7 @@
 {
   "ADD_TODO": "Add Todo",
   "EDIT_TODO": "Update Todo",
-  "TITILE_REQUIRED": "Title is required."
+  "TITILE_REQUIRED": "Title is required.",
+  "TITILE_MINLENGHT": "Title Min Lenght must be more than 3 chars",
+  "TITILE_EMPTY": "Title have Empty string"
 }

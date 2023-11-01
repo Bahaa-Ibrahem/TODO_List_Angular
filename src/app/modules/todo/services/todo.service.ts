@@ -8,6 +8,7 @@ import { ITodo } from '../interfaces/todo.interface';
   providedIn: 'root'
 })
 export class TodoService {
+  todoList: ITodo[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
